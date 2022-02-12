@@ -1,7 +1,8 @@
-use std::collections::HashMap;
+pub mod artifact_enhancer;
 
-use crate::artifact::*;
-use crate::artifact_enhancer::ArtifactEnhancer;
+use artifact::*;
+use artifact_enhancer::ArtifactEnhancer;
+use std::collections::HashMap;
 
 #[derive(Clone, Hash, PartialEq, Eq)]
 pub struct ArtifactZip(pub u64);

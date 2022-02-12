@@ -1,18 +1,20 @@
-mod artifact;
-mod artifact_enhancer;
-mod artifactzip;
+/*!
+ * 这份代码没有输入
+ * 输出五个文件，分别记录五个部位的所有20级5星圣遗物的副词条及产生概率。
+ */
 
 use std::fs::File;
 use std::io::Write;
 
 use artifact::slot::Slot;
 use artifact::stat::Stat;
-use artifact_enhancer::ArtifactEnhancer;
+use artifactzip::artifact_enhancer::ArtifactEnhancer;
 use artifactzip::*;
 
 fn main() {
     for slot in Slot::list() {
-        let mut file = File::create(format!("{}.data.bin", ArtifactZip::encode_slot(&slot))).unwrap();
+        let mut file =
+            File::create(format!("{}.data.bin", ArtifactZip::encode_slot(&slot))).unwrap();
         for stat in Stat::list() {
             let p = slot.get_main_stat_probability(&stat);
             if p == 0.0 {

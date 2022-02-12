@@ -3,5 +3,20 @@
 version = 3
 
 [[package]]
-name = "artifacts"
+name = "artifact"
 version = "0.1.0"
+
+[[package]]
+name = "artifact_creator"
+version = "0.1.0"
+dependencies = [
+ "artifact",
+ "artifactzip",
+]
+
+[[package]]
+name = "artifactzip"
+version = "0.1.0"
+dependencies = [
+ "artifact",
+]
